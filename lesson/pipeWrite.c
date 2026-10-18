@@ -20,7 +20,7 @@ int main(void){
         exit(EXIT_FAILURE);
       case 0:  // read
         sprintf(buffer, "%d", pipeFD[0]);  // print content pipe[0] into buffer
-        execl("./read", "read", buffer, (char *)0);  // (char *)0 -> pointer to NULL // use buffer as an argv[1]
+        execl("pipeRead", "pipeRead", buffer, (char *)0);  // (char *)0 -> pointer to NULL // use buffer as an argv[1]
         exit(EXIT_SUCCESS);
       default:  // write
         n_bytes = write(pipeFD[1], data, strlen(data));  // write data into pipeFD[1] (write pipe)
